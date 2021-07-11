@@ -7,13 +7,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tests', '0002_deprecate_title'),
+        ("tests", "0002_deprecate_title"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='album',
-            name='artist',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='albums', to='tests.artist'),
+            model_name="album",
+            name="artist",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="albums",
+                to="tests.artist",
+            ),
         ),
     ]
