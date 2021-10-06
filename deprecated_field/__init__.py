@@ -136,6 +136,15 @@ class DeprecatedField(models.Field):
         )
         return self.get_db_prep_value(value, connection=connection, prepared=False)
 
+    def get_default(self):
+        """
+        Hook into the logic Django uses to set a value on a model if one wasn't
+        provided in __init__, create() or similar. This basically tells Django
+        to not set a value, which we don't want for deprecated fields.
+        """
+
+        return models.DEFERRED
+
 
 def deprecated(original_field: models.Field) -> DeprecatedField:
     """
