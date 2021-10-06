@@ -92,8 +92,8 @@ class DeprecatedField(models.Field):
 
     def clone(self):
         """
-        This is where the magic happens. Instead of returning a copye of this
-        field we return a copy of the underlaying field. This method is called
+        This is where the magic happens. Instead of returning a copy of this
+        field we return a copy of the underlying field. This method is called
         when the Django migrations system checks for changes, meaning that this
         ensures the deprecation is invisible to the migration system.
         """
