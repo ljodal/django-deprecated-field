@@ -3,7 +3,7 @@ import logging
 import pytest
 from django.test import override_settings
 
-from deprecated_field.utils import DeprecatedFieldAccessError
+from deprecated_field import DeprecatedFieldAccessError
 
 from ..models import Genre
 

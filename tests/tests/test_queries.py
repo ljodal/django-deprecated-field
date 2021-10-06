@@ -3,7 +3,7 @@ import logging
 import pytest
 from django.test import override_settings
 
-from deprecated_field.utils import DeprecatedFieldAccessError
+from deprecated_field import DeprecatedFieldAccessError
 
 from ..models import Genre
 
@@ -31,6 +31,12 @@ def test_create_with_deprecated_field_not_in_db(db, caplog):
         'Tried to set deprecated field "name" on instance of "tests.models.Genre"'
         in caplog.text
     )
+
+
+def test_create_with_deprecated_field_not_in_db_strict(db, caplog):
+
+    with override_settings(STRICT_DEPRECATED_FIELD=True):
+        Genre.objects.create()
 
 
 def test_create_with_deprecated_field_not_in_db_strict(db, caplog):
