@@ -39,7 +39,7 @@ def test_create_with_deprecated_field_not_in_db_strict(db, caplog):
         Genre.objects.create()
 
 
-def test_create_with_deprecated_field_not_in_db_strict(db, caplog):
+def test_create_with_deprecated_field_not_in_db_strict_raises(db, caplog):
 
     with pytest.raises(DeprecatedFieldAccessError):
         with override_settings(STRICT_DEPRECATED_FIELD=True):
